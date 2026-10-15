@@ -96,7 +96,7 @@
       <select id="input-level">
         <option value="1">1足目（ビギナー向け）</option>
         <option value="2" selected>2足目（ステップアップ）</option>
-        <option value="3">3足目以上（中上級・本気靴）</option>
+        <option value="3">3足目以上（中級者・上級者）</option>
       </select>
     </div>
 
@@ -135,9 +135,9 @@
     <div class="form-group">
       <label>6. 求めるソール特性</label>
       <div class="btn-group" id="group-perf">
-        <div class="option-btn" data-value="soft">ソフト（足裏感覚）</div>
+        <div class="option-btn" data-value="soft">ソフト（グリップ重視）</div>
         <div class="option-btn" data-value="allround">オールラウンド</div>
-        <div class="option-btn" data-value="hard">ハード（エッジング）</div>
+        <div class="option-btn" data-value="hard">ハード（エッジング重視）</div>
         <div class="option-btn selected" data-value="none">選択しない</div>
       </div>
     </div>
@@ -238,10 +238,10 @@ const SHOE_DATABASE = [
     score_level: 5, score_width_narrow: 3, score_width_normal: 4, score_width_wide: 5, score_instep_low: 3, score_instep_normal: 4, score_instep_high: 5, score_toe_egyptian: 5, score_toe_roman: 3, score_toe_greek: 4, score_heel_narrow: 2, score_heel_normal: 3, score_heel_large: 4, score_perf_soft: 5, score_perf_allround: 4, score_perf_hard: 3
   },
   {
-    id: 6, brand: "UNPARALLEL", name: "アンパラレル「アップヴァートゥー」", categoryLevel: 1, sizeUnit: "US", sizeOffset: 0.0,
+    id: 6, brand: "UNPARALLEL", name: "アンパラレル「アップヴァートゥー」", categoryLevel: 1, sizeUnit: "US", sizeOffset: 0.5,
     imageUrl: "https://assets.st-note.com/production/uploads/images/286136728/rectangle_large_type_2_ad162656a4ea50f345a6caad289be75e.jpeg?width=1240",
     noteUrl: "https://note.com/clshoefitter/n/n5d8663ec9bd3", description: "買ったときの快適なサイズ感がずっと長持ちする、オールラウンドシューズ",
-    score_level: 5, score_width_narrow: 4, score_width_normal: 3, score_width_wide: 2, score_instep_low: 1, score_instep_normal: 3, score_instep_high: 5, score_toe_egyptian: 5, score_toe_roman: 4, score_toe_greek: 4, score_heel_narrow: 3, score_heel_normal: 5, score_heel_large: 4, score_perf_soft: 3, score_perf_allround: 4, score_perf_hard: 5
+    score_level: 4, score_width_narrow: 4, score_width_normal: 3, score_width_wide: 2, score_instep_low: 1, score_instep_normal: 3, score_instep_high: 5, score_toe_egyptian: 5, score_toe_roman: 4, score_toe_greek: 4, score_heel_narrow: 3, score_heel_normal: 5, score_heel_large: 4, score_perf_soft: 3, score_perf_allround: 4, score_perf_hard: 5
   },
   {
     id: 7, brand: "UNPARALLEL", name: "アンパラレル「アップフロート」", categoryLevel: 2, sizeUnit: "US", sizeOffset: 0.0,
@@ -271,7 +271,7 @@ const SHOE_DATABASE = [
     id: 11, brand: "TENAYA", name: "テナヤ「オアシ」", categoryLevel: 2, sizeUnit: "UK", sizeOffset: -1.0,
     imageUrl: "https://assets.st-note.com/production/uploads/images/290373364/rectangle_large_type_2_3c8e2c1666bec97733be53a998a24480.jpeg?width=1240",
     noteUrl: "https://note.com/clshoefitter/n/ne1d150461db1", description: "繊細な足裏感覚を持ちながら、点（粒）にも面（ボテ）にも対応する万能シューズ",
-    score_level: 5, score_width_narrow: 3, score_width_normal: 4, score_width_wide: 5, score_instep_low: 3, score_instep_normal: 4, score_instep_high: 5, score_toe_egyptian: 4, score_toe_roman: 5, score_toe_greek: 3, score_heel_narrow: 3, score_heel_normal: 4, score_heel_large: 5, score_perf_soft: 4, score_perf_allround: 5, score_perf_hard: 3
+    score_level: 4, score_width_narrow: 3, score_width_normal: 4, score_width_wide: 5, score_instep_low: 3, score_instep_normal: 4, score_instep_high: 5, score_toe_egyptian: 4, score_toe_roman: 5, score_toe_greek: 1, score_heel_narrow: 3, score_heel_normal: 4, score_heel_large: 5, score_perf_soft: 4, score_perf_allround: 5, score_perf_hard: 3
   },
   {
     id: 12, brand: "BUTORA", name: "ブトラ「アイベックス」", categoryLevel: 3, sizeUnit: "US", sizeOffset: 0.0,
@@ -386,7 +386,7 @@ function calculateStandardSizes(sneakerSize) {
   const d = sneakerSize - 26.0;
   const off = getScaleOffsets(d);
 
-  return `スポルティバ/スカルパ: EU ${roundToHalf(39.0 + off.eu)}〜${roundToHalf(40.0 + off.eu)} | アンパラレル/ブトラ/マッドロック: US ${roundToHalf(7.5 + off.us)}〜${roundToHalf(8.5 + off.us)} | ボリエール/テナヤ: UK ${roundToHalf(6.5 + off.uk)}〜${roundToHalf(7.5 + off.uk)}`;
+  return `スポルティバ/スカルパ: EU ${roundToHalf(40.0 + off.eu)}〜${roundToHalf(41.0 + off.eu)} | アンパラレル/ブトラ/マッドロック: US ${roundToHalf(8.0 + off.us)}〜${roundToHalf(9.0 + off.us)} | ボリエール/テナヤ: UK ${roundToHalf(7.0 + off.uk)}〜${roundToHalf(8.0 + off.uk)}`;
 }
 
 // ブランド別表記＆固有オフセット算出（.0 / .5 丸め適用）
